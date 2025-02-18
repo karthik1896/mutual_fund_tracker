@@ -1,7 +1,5 @@
 import os
 import requests
-import time
-import schedule
 
 # Discord Webhook Configuration
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
@@ -47,7 +45,7 @@ def fetch_mutual_fund_nav():
     
     return results
 
-# Send Discord Alert with Aggregated Information in a Table Structure
+# Send Discord Alert
 def send_discord_alert(message):
     try:
         response = requests.post(DISCORD_WEBHOOK_URL, json={"content": message}, timeout=5)
@@ -61,7 +59,7 @@ def track_assets():
     alerts = []  # Collect all alerts
     table_rows = []  # Collect rows for tabular display
 
-    # Prepare the table header with proper alignment for Discord
+    # Prepare the table header
     table_header = f"{'Fund Name':<45} {'Price (₹)':<15} {'Alert'}"
     table_rows.append(table_header)
 
@@ -69,25 +67,19 @@ def track_assets():
         if name in THRESHOLDS:
             low, high = THRESHOLDS[name]["low"], THRESHOLDS[name]["high"]
 
-            # Add price row to table
             price_alert = ""
             if price < low:
                 price_alert = "📉 (Buy Opportunity)"
             elif price > high:
                 price_alert = "📈 (Consider Selling)"
-            table_rows.append(f"{name:<45} {price:<15} {price_alert}")
-
-            # Collect alert message
+            
             if price_alert:
+                table_rows.append(f"{name:<45} {price:<15} {price_alert}")
                 alerts.append(f"🚨 {name}: {price_alert} at {price}!")
 
-    # Prepare the structured message with both market alerts and table
+    # If alerts exist, send message
     if alerts:
         structured_message = "🚨 **Market Alerts** 🚨\n"
-        structured_message += "\n".join(alerts) + "\n\n"
-        structured_message += "📊 **Today's Prices** 📊\n"
-        
-        # Add the table, wrapped in a code block
         structured_message += "```" + "\n".join(table_rows) + "```"
 
         send_discord_alert(structured_message)
