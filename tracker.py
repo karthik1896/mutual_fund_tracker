@@ -94,9 +94,5 @@ def track_assets():
     else:
         print("No alerts triggered today.")
 
-# Run every day at 9 AM & 3 PM
-schedule.every().day.at("09:00").do(track_assets)
-schedule.every().day.at("15:00").do(track_assets)
-
 if __name__ == "__main__":
     track_assets()
