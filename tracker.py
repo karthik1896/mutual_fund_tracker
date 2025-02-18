@@ -100,6 +100,3 @@ schedule.every().day.at("15:00").do(track_assets)
 
 if __name__ == "__main__":
     track_assets()
-   # while True:
-       # schedule.run_pending()  # Keep checking for pending scheduled tasks
-       # time.sleep(60)  # Check every minute
