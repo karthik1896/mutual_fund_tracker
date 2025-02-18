@@ -6,19 +6,19 @@ DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
 # Mutual Funds & Their IDs to Track
 MUTUAL_FUNDS = {
-    "Nippon India Small Cap Fund": "120828",
-    "Quant Small Cap Fund": "125497",
-    "Tata Small Cap Fund": "122639",
-    "UTI Nifty Index Fund": "119364",
-    "Motilal Oswal SmallCap Fund": "124963",
-    "PGIM India Small Cap Fund": "121773",
-    "Aditya Birla Sun Life Multi-Index Fund of Funds": "126196",
-    "HDFC Nifty Index Fund": "118550",
-    "SBI Nifty Index Fund": "118834"
+    "Nippon India Small Cap Fund": "118778",
+    "Quant Small Cap Fund": "120828",
+    "Tata Small Cap Fund": "145206",
+    "UTI Nifty Index Fund": "120716",
+    "Motilal Oswal SmallCap Fund": "147623",
+    "PGIM India Small Cap Fund": "149019",
+    "Aditya Birla Sun Life Multi-Index Fund of Funds": "150690",
+    "HDFC Nifty Index Fund": "149288",
+    "SBI Nifty Index Fund": "148945"
 }
 
 THRESHOLDS = {
-    "Nippon India Small Cap Fund": {"low": 100.0, "high": 150.0},
+    "Nippon India Small Cap Fund": {"low": 150.0, "high": 200.0},
     "Quant Small Cap Fund": {"low": 120.0, "high": 180.0},
     "Tata Small Cap Fund": {"low": 90.0, "high": 140.0},
     "UTI Nifty Index Fund": {"low": 80.0, "high": 130.0},
