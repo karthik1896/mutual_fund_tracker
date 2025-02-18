@@ -3,8 +3,7 @@ name: Track Mutual Funds
 # Trigger the workflow at specific times using cron syntax
 on:
   schedule:
-    - cron: '30 4 * * *'  # This runs the workflow at 9 AM IST (4:30 AM UTC)
-    - cron: '05 11 * * *'  # This runs the workflow at 3:35 PM IST (11:05 AM UTC)
+    - cron: "*/5 * * * *"  # Runs every 5 minutes for testing
   workflow_dispatch:  # This allows you to manually trigger the workflow if needed
 
   # Trigger workflow on push to the develop branch
