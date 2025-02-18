@@ -1,15 +1,9 @@
 name: Track Mutual Funds
 
-# Trigger the workflow at specific times using cron syntax
 on:
+  workflow_dispatch:
   schedule:
     - cron: "*/5 * * * *"  # Runs every 5 minutes for testing
-  workflow_dispatch:  # This allows you to manually trigger the workflow if needed
-
-  # Trigger workflow on push to the develop branch
-  push:
-    branches:
-      - develop
 
 jobs:
   run-script:
