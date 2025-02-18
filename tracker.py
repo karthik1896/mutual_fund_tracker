@@ -1,9 +1,10 @@
+import os
 import requests
 import time
 import schedule
 
 # Discord Webhook Configuration
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1341274924601442344/Cac6jdCuP6arzwR0gUb8duOTfMSjgw5E4kTDN7uqF9jxiJ8bCsQ7GI8AGJV6SCIYZO-h"
+DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
 # Mutual Funds & Their IDs to Track
 MUTUAL_FUNDS = {
