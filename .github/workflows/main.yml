@@ -3,7 +3,7 @@ name: Track Mutual Funds
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/720 * * * *"
+    - cron: "*/1440 * * * *"
 
 jobs:
   run-script:
